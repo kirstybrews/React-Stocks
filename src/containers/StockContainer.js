@@ -7,8 +7,10 @@ class StockContainer extends Component {
     return (
       <div>
         <h2>Stocks</h2>
-        {
-          //render the list of stocks here
+        { this.props.filteredStocks.length > 0 ?
+          this.props.filteredStocks.map(stock => <Stock clickAction={this.props.buyStock} stock={stock}/>)
+          :
+          this.props.stocks.map(stock => <Stock clickAction={this.props.buyStock} stock={stock}/>)
         }
       </div>
     );
